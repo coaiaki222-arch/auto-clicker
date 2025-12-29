@@ -32,10 +32,10 @@ goto main_menu
 :banner
 cls
 echo %logocolor%
-echo  __  __   _   ___ _  ___   _ ___ 
-echo ^|  \/  ^| /_\ ^| _ \ ^|/ / ^| ^| / __^|
-echo ^| ^|\/^| ^|/ _ \^|   / ' ^<^| ^|_^| \__ \
-echo ^|_^|  ^|_/_/ \_\_^|_\_^|\_\\___/^|___/ %errorcolor% v2.0
+echo  __  __   _   ___ _  ___   _ ___ 
+echo ^|  \/  ^| /_\ ^| _ \ ^|/ / ^| ^| / __^|
+echo ^| ^|\/^| ^|/ _ \^|   / ' ^<^| ^|_^| \__ \
+echo ^|_^|  ^|_/_/ \_\_^|_\_^|\_\\___/^|___/ %errorcolor% v2.0
 echo.
 echo --------------------------------------------------
 goto :eof
@@ -43,9 +43,9 @@ goto :eof
 :main_menu
 call :banner
 echo.
-echo    [1] Auto Click (Settings)
-echo    [2] Bypass
-echo    [3] Exit
+echo    [1] Auto Click (Settings)
+echo    [2] Bypass
+echo    [3] Exit
 echo.
 set /p "menu_choice=[?25h> "
 
@@ -101,7 +101,7 @@ goto main_menu
 call :banner
 echo Type 'main' to return to the main menu.
 echo.
-echo Num  Profile[35GDescription
+echo Num  Profile[35GDescription
 echo ==================================================
 for /l %%a in (1,1,%totalProfiles%) do (
 	echo %%a.[6G!profile[%%a]![35G!profile[%%a]_desc! [!profile[%%a]_defaultargs!]
@@ -257,24 +257,24 @@ namespace n$namespace
 			
 			Console.WriteLine("");
 			Console.WriteLine("Controls:");
-			Console.WriteLine("  [" + KeybindString[0] + "] Toggle Clicker");
-			Console.WriteLine("  [" + KeybindString[1] + "] Hide/Show Console");
-			Console.WriteLine("  [" + KeybindString[2] + "] Return to Menu");
+			Console.WriteLine("  [" + KeybindString[0] + "] Toggle Clicker");
+			Console.WriteLine("  [" + KeybindString[1] + "] Hide/Show Console");
+			Console.WriteLine("  [" + KeybindString[2] + "] Return to Menu");
 			Console.WriteLine("");
 		}
 		
 		public static void DrawStatus(int row, bool enabled)
 		{
 			Console.SetCursorPosition(1, row);
-			Console.WriteLine("Status: " + (enabled ? "\x1b[92mActive  \x1b[0m" : "\x1b[91mStandby \x1b[0m"));
+			Console.WriteLine("Status: " + (enabled ? "\x1b[92mActive  \x1b[0m" : "\x1b[91mStandby \x1b[0m"));
 		}
 		
 		public static void DrawStatus(int row, bool enabled, string label, string value)
 		{
 			Console.SetCursorPosition(1, row);
-			Console.WriteLine("Status: " + (enabled ? "\x1b[92mActive  \x1b[0m" : "\x1b[91mStandby \x1b[0m"));
+			Console.WriteLine("Status: " + (enabled ? "\x1b[92mActive  \x1b[0m" : "\x1b[91mStandby \x1b[0m"));
 			Console.SetCursorPosition(1, row + 1);
-			Console.WriteLine(label + ": " + value + "    ");
+			Console.WriteLine(label + ": " + value + "    ");
 		}
 		
 		public static bool MinOverMaxCheck(int min, int max)
@@ -336,7 +336,7 @@ namespace n$namespace
 			if (MinOverMaxCheck(MinimumCPS, MaximumCPS)) return;
 			DrawStatus(StatusRow, ClickerEnabled);
 			
-			bool ButtonUpOrDown = false; 
+			bool ButtonUpOrDown = false; 
 			long ClickWaitTill = 0;
 			long RightNow = GetSystemTime();
 			
@@ -522,7 +522,7 @@ namespace n$namespace
 			long ClickWaitTill = 0;
 			long RightNow = GetSystemTime();
 			
-			DrawStatus(StatusRow, ClickerEnabled, "Point", ClickingPoint);
+			DrawStatus(StatusRow, ClickerEnabled, "Point", ClickingPoint.ToString());
 			
 			while (running)
 			{
@@ -556,7 +556,7 @@ namespace n$namespace
 					{
 						ChangeStartingPoint = false;
 						ClickingPoint = rand.Next(1, ClickTimes.Count / 4);
-						DrawStatus(StatusRow, ClickerEnabled, "Point", ClickingPoint);
+						DrawStatus(StatusRow, ClickerEnabled, "Point", ClickingPoint.ToString());
 						ClickWaitTill = 0;
 						Thread.Sleep(1);
 					}
